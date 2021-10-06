@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Pomodoro app</title>
+    <link rel="stylesheet" />
+  </head>
+  <body>
+    <main class="page">
+      <a href="#" class="logo"
+        ><img
+          class="logo-image"
+          src="assets/logo.svg"
+          alt="Pomodoro - Home Page"
+      /></a>
+
+      <menu class="menu" role="list">
+        <li class="menu__list-element">
+          <button class="btn btn--menu btn--active" data-mode="pomodoro">
+            pomodoro
+          </button>
+        </li>
+        <li class="menu__list-element">
+          <button class="btn btn--menu" data-mode="shortBreak">
+            short break
+          </button>
+        </li>
+        <li class="menu__list-element">
+          <button class="btn btn--menu" data-mode="longBreak">
+            long break
+          </button>
+        </li>
+      </menu>
+
+      <div class="timer-outside-container">
+        <div class="timer-inside-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="timer__progress-bar"
+            viewbox="0 0 250 250"
+          >
+            <circle
+              id="progress-bar"
+              cx="125"
+              cy="125"
+              r="120"
+              fill="none"
+              rotate="-90deg"
+              stroke="var(--clr-primary)"
+              stroke-width="6"
+              stroke-linecap="round"
+              stroke-dasharray="753.6"
+            />
+          </svg>
+          <div class="timer">
+            <span class="minutes">25</span>:<span class="seconds">00</span>
+            <button class="btn btn--timer">Start</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn--settings">
+        <svg
+          class="btn--settings__image"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 28 28"
+        >
+          <title>Settings...</title>
+          <path
+            d="M26.965 17.682l-2.927-2.317c.055-.448.097-.903.097-1.365 0-.462-.042-.917-.097-1.365l2.934-2.317a.702.702 0 00.167-.896l-2.775-4.851a.683.683 0 00-.847-.301l-3.454 1.407a10.506 10.506 0 00-2.345-1.379l-.52-3.71A.716.716 0 0016.503 0h-5.55a.703.703 0 00-.687.588l-.52 3.71c-.847.357-1.63.819-2.345 1.379L3.947 4.27a.691.691 0 00-.847.301L.325 9.422a.705.705 0 00.167.896l2.927 2.317c-.055.448-.097.903-.097 1.365 0 .462.042.917.097 1.365L.492 17.682a.702.702 0 00-.167.896L3.1 23.429a.683.683 0 00.847.301L7.4 22.323a10.506 10.506 0 002.345 1.379l.52 3.71c.056.329.34.588.687.588h5.55a.703.703 0 00.687-.588l.52-3.71c.847-.357 1.631-.819 2.346-1.379l3.454 1.407c.313.119.673 0 .847-.301l2.775-4.851a.705.705 0 00-.167-.896zM13.73 18.9c-2.685 0-4.857-2.191-4.857-4.9 0-2.709 2.172-4.9 4.857-4.9 2.684 0 4.856 2.191 4.856 4.9 0 2.71-2.172 4.9-4.856 4.9z"
+            opacity=".5"
+          />
+        </svg>
+      </button>
+    </main>
+
+    <div class="modal-backdrop">
+      <div
+        role="dialog"
+        id="settings-modal"
+        class="modal"
+        aria-labelledby="modal-label"
+        aria-modal="true"
+      >
+        <div>
+          <header class="modal__section modal__section--header">
+            <h1 id="modal-label" class="modal__title">Settings</h1>
+            <button class="btn modal__btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                <title>Close</title>
+                <path
+                  fill="#1E213F"
+                  fill-rule="evenodd"
+                  d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z"
+                  opacity=".5"
+                />
+              </svg>
+            </button>
+          </header>
+        </div>
+        <form class="modal__form">
+          <fieldset class="modal__section">
+            <legend class="modal__section-title">Time (Minutes)</legend>
+            <label class="modal__input-group" for="pomodoro"
+              ><span class="modal__input-label">pomodoro</span
+              ><span class="number-input-wrapper">
+                <span class="number-input__btn-container">
+                  <button
+                    class="number-input__btn"
+                    tabindex="-1"
+                    type="button"
+                    aria-hidden="true"
+                    onclick="
+                    this.parentNode.parentNode.querySelector('input[type=number]').stepUp()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 6l6-4 6 4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="number-input__btn"
+                    tabindex="-1"
+                    type="button"
+                    aria-hidden="true"
+                    onclick="
+                  this.parentNode.parentNode.querySelector('input[type=number]').stepDown()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 1l6 4 6-4"
+                      />
+                    </svg>
+                  </button>
+                </span>
+
+                <input
+                  class="number-input"
+                  type="number"
+                  name="pomodoro"
+                  id="pomodoro"
+                  min="1"
+                  max="60"
+                  value="25"
+                  step="1" /></span
+            ></label>
+            <label class="modal__input-group" for="shortBreak"
+              ><span class="modal__input-label">short break</span
+              ><span class="number-input-wrapper">
+                <span class="number-input__btn-container">
+                  <button
+                    class="number-input__btn"
+                    tabindex="-1"
+                    type="button"
+                    aria-hidden="true"
+                    onclick="
+                    this.parentNode.parentNode.querySelector('input[type=number]').stepUp()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 6l6-4 6 4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="number-input__btn"
+                    tabindex="-1"
+                    type="button"
+                    aria-hidden="true"
+                    onclick="
+                  this.parentNode.parentNode.querySelector('input[type=number]').stepDown()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 1l6 4 6-4"
+                      />
+                    </svg>
+                  </button>
+                </span>
+                <input
+                  class="number-input"
+                  type="number"
+                  name="shortBreak"
+                  id="shortBreak"
+                  min="1"
+                  max="60"
+                  value="5"
+                  step="1" /></span
+            ></label>
+            <label class="modal__input-group" for="longBreak"
+              ><span class="modal__input-label">long break</span
+              ><span class="number-input-wrapper">
+                <span class="number-input__btn-container">
+                  <button
+                    class="number-input__btn"
+                    tabindex="-1"
+                    type="button"
+                    aria-hidden="true"
+                    onclick="
+                    this.parentNode.parentNode.querySelector('input[type=number]').stepUp()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 6l6-4 6 4"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="number-input__btn"
+                    tabindex="-1"
+                    type="button"
+                    aria-hidden="true"
+                    onclick="
+                  this.parentNode.parentNode.querySelector('input[type=number]').stepDown()"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 1l6 4 6-4"
+                      />
+                    </svg>
+                  </button>
+                </span>
+                <input
+                  class="number-input"
+                  type="number"
+                  name="longBreak"
+                  id="longBreak"
+                  min="1"
+                  max="60"
+                  value="15"
+                  step="1" /></span
+            ></label>
+          </fieldset>
+          <fieldset class="modal__section modal__section--radio">
+            <legend class="modal__section-title modal__section-title--radio">
+              Font
+            </legend>
+            <div class="modal__radiogroup">
+              <label>
+                <input
+                  class="radio-input"
+                  type="radio"
+                  name="fontFamily"
+                  id=""
+                  value="Kumbh Sans"
+                  checked
+                />
+                <span class="radio-input__label radio-input__label--font"
+                  >Aa</span
+                >
+              </label>
+              <label>
+                <input
+                  class="radio-input"
+                  type="radio"
+                  name="fontFamily"
+                  id=""
+                  value="Roboto Slab"
+                />
+                <span class="radio-input__label radio-input__label--font"
+                  >Aa</span
+                >
+              </label>
+              <label>
+                <input
+                  class="radio-input"
+                  type="radio"
+                  name="fontFamily"
+                  id=""
+                  value="Space Mono"
+                />
+                <span class="radio-input__label radio-input__label--font"
+                  >Aa</span
+                ></label
+              >
+            </div>
+          </fieldset>
+          <fieldset class="modal__section modal__section--radio">
+            <legend class="modal__section-title modal__section-title--radio">
+              Color
+            </legend>
+            <div class="modal__radiogroup">
+              <label>
+                <input
+                  class="radio-input"
+                  type="radio"
+                  name="color"
+                  value="red"
+                  id=""
+                  checked
+                />
+                <span
+                  class="radio-input__label radio-input__label--color"
+                ></span>
+              </label>
+              <label>
+                <input
+                  class="radio-input"
+                  type="radio"
+                  name="color"
+                  value="cyan"
+                  id=""
+                />
+                <span
+                  class="radio-input__label radio-input__label--color"
+                ></span>
+              </label>
+              <label>
+                <input
+                  class="radio-input"
+                  type="radio"
+                  value="violet"
+                  name="color"
+                  id=""
+                />
+                <span
+                  class="radio-input__label radio-input__label--color"
+                ></span>
+              </label>
+            </div>
+          </fieldset>
+          <button type="submit" class="modal__submit">Apply</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

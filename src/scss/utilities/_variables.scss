@@ -1,0 +1,32 @@
+$breakpoints: (
+  "sm": "(min-width: 550px)",
+  "md": "(min-width: 700px)",
+  "lg": "(min-width: 1280px)",
+);
+
+$clr-text: hsl(227, 100%, 92%);
+$clr-neutral: hsl(235, 35%, 18%);
+$clr-neutral-dark: hsl(234, 39%, 14%);
+$clr-modal: hsl(0, 0%, 100%);
+$clr-input-bgc: hsl(229, 52%, 96%);
+:root {
+  --clr-red: hsl(0, 91%, 71%);
+  --clr-cyan: hsl(182, 91%, 71%);
+  --clr-violet: hsl(284, 89%, 74%);
+  --clr-primary: var(--clr-red);
+
+  --ff-Roboto-Slab: "Roboto Slab", serif;
+  --ff-Space-Mono: "Space Mono", monospace;
+  --ff-Kumbh-Sans: "Kumbh Sans", sans-serif;
+  --ff-primary: var(--ff-Kumbh-Sans);
+}
+
+:root[data-color="red"] {
+  --clr-primary: var(--clr-red);
+}
+:root[data-color="cyan"] {
+  --clr-primary: var(--clr-cyan);
+}
+:root[data-color="violet"] {
+  --clr-primary: var(--clr-violet);
+}

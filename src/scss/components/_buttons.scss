@@ -1,0 +1,71 @@
+@use "../utilities" as *;
+
+.btn {
+  padding: 0 1.91em;
+  height: 48px;
+  background-color: transparent;
+  border: none;
+  border-radius: 999px;
+  color: $clr-text;
+  font-weight: 700;
+  cursor: pointer;
+  &--menu {
+    font-size: 0.75rem;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+    @include mq("md") {
+      font-size: 0.875rem;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &--active {
+    background-color: var(--clr-primary);
+    opacity: 1;
+    color: $clr-neutral;
+  }
+  &--timer {
+    height: auto;
+    padding: 0;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translate(
+      calc(-50% + 0.9375em / 2),
+      -50%
+    ); // calc counteracts for letter spacing on the last letter
+
+    font-size: 0.875rem;
+    letter-spacing: 0.9375em;
+    text-transform: uppercase;
+    z-index: 1;
+
+    &:hover {
+      color: var(--clr-primary);
+    }
+    @include mq("md") {
+      font-size: 1rem;
+    }
+  }
+  &--settings {
+    height: auto;
+    padding: 0.5rem;
+    margin: 0 auto;
+    fill: $clr-text;
+
+    &:hover &__image {
+      fill: $clr-input-bgc;
+    }
+    &:hover &__image * {
+      opacity: 1;
+    }
+    &__image {
+      width: 28px;
+      transition: fill 0.3s;
+    }
+    &__image * {
+      transition: opacity 0.3s;
+    }
+  }
+}

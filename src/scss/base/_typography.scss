@@ -1,0 +1,128 @@
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("../fonts/KumbhSans-Regular.woff2") format("woff2"),
+    url("../fonts/KumbhSans-Regular.woff") format("woff"),
+    url("../fonts/KumbhSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("../fonts/KumbhSans-Light.woff2") format("woff2"),
+    url("../fonts/KumbhSans-Light.woff") format("woff"),
+    url("../fonts/KumbhSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("../fonts/KumbhSans-Bold.woff2") format("woff2"),
+    url("../fonts/KumbhSans-Bold.woff") format("woff"),
+    url("../fonts/KumbhSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-BoldItalic.woff2") format("woff2"),
+    url("../fonts/SpaceMono-BoldItalic.woff") format("woff"),
+    url("../fonts/SpaceMono-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Bold.woff2") format("woff2"),
+    url("../fonts/SpaceMono-Bold.woff") format("woff"),
+    url("../fonts/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Regular.woff2") format("woff2"),
+    url("../fonts/SpaceMono-Regular.woff") format("woff"),
+    url("../fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("../fonts/SpaceMono-Italic.woff2") format("woff2"),
+    url("../fonts/SpaceMono-Italic.woff") format("woff"),
+    url("../fonts/SpaceMono-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../fonts/RobotoSlab-Regular.woff2") format("woff2"),
+    url("../fonts/RobotoSlab-Regular.woff") format("woff"),
+    url("../fonts/RobotoSlab-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../fonts/RobotoSlab-Bold.woff2") format("woff2"),
+    url("../fonts/RobotoSlab-Bold.woff") format("woff"),
+    url("../fonts/RobotoSlab-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../fonts/RobotoSlab-Light.woff2") format("woff2"),
+    url("../fonts/RobotoSlab-Light.woff") format("woff"),
+    url("../fonts/RobotoSlab-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../fonts/RobotoSlab-Thin.woff2") format("woff2"),
+    url("../fonts/RobotoSlab-Thin.woff") format("woff"),
+    url("../fonts/RobotoSlab-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: bold;
+}
+
+:root[data-font="Roboto Slab"] {
+  --ff-primary: var(--ff-Roboto-Slab);
+  .timer {
+    letter-spacing: 0em;
+  }
+}
+:root[data-font="Space Mono"] {
+  --ff-primary: var(--ff-Space-Mono);
+  .timer {
+    letter-spacing: -0.1em;
+    font-weight: normal;
+  }
+}
+:root[data-font="Kumbh-Sans"] {
+  --ff-primary: var(--ff-Kumbh-Sans);
+  .timer {
+    letter-spacing: -0.05em;
+  }
+}

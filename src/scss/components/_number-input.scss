@@ -1,0 +1,38 @@
+@use "../utilities/" as *;
+.number-input {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  &::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  padding: 1em;
+  width: 140px;
+  border: none;
+  border-radius: 10px;
+
+  background-color: $clr-input-bgc;
+  font-size: 0.875rem;
+  &-wrapper {
+    position: relative;
+  }
+  &__btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    &:hover path {
+      stroke-opacity: 1;
+      stroke: $clr-neutral;
+    }
+  }
+  &__btn-container {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+  }
+}

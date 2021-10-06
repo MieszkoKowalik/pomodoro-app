@@ -1,0 +1,68 @@
+@use "../utilities/" as *;
+.radio-input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+  &[value="Kumbh Sans"] {
+    & + .radio-input__label {
+      font-family: var(--Kumbh-Sans);
+      padding-top: 3px;
+    }
+  }
+  &[value="Roboto Slab"] {
+    & + .radio-input__label {
+      font-family: var(--ff-Roboto-Slab);
+    }
+  }
+  &[value="Space Mono"] {
+    & + .radio-input__label {
+      font-family: var(--ff-Space-Mono);
+    }
+  }
+  &[value="red"] {
+    & + .radio-input__label {
+      background-color: var(--clr-red);
+    }
+  }
+  &[value="cyan"] {
+    & + .radio-input__label {
+      background-color: var(--clr-cyan);
+    }
+  }
+  &[value="violet"] {
+    & + .radio-input__label {
+      background-color: var(--clr-violet);
+    }
+  }
+
+  &__label {
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $clr-input-bgc;
+    font-size: 0.9375rem;
+    transition: box-shadow 0.2s linear;
+    cursor: pointer;
+    &:hover,
+    &:focus-visible {
+      box-shadow: 0 0 0px 4px $clr-modal, 0 0 0 5px $clr-text;
+    }
+  }
+  &:checked + &__label--font {
+    background-color: $clr-neutral-dark;
+    color: white;
+  }
+  &:checked + &__label--color::after {
+    content: url("../assets/checkmark.svg");
+    display: block;
+    width: 15px;
+    height: 11px;
+  }
+}
